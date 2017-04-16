@@ -7,6 +7,43 @@ require 'drb'
 require 'liveblog'
 
 
+class LiveBlogServer 
+  
+  def initialize(config)
+    @config = config
+    @lb = LiveBlog.new  config     
+  end
+        
+  def add_entry(raw_entry)
+    @lb.add_entry raw_entry
+  end
+  
+  def date()
+    @lb.date
+  end
+  
+  def import(x=nil)
+    @lb.import x
+  end
+  
+  def raw_view(tag)
+    @lb.raw_view tag
+  end
+  
+  def restart()
+    @lb = LiveBlogServer.new  @config  
+    'restarted'
+  end     
+  
+  def update(val)
+    @lb.update(val)
+  end
+  
+  def valid_entry?(tag)
+    @lb.valid_entry?(tag)
+  end
+  
+end
 
 class LiveblogDRbServer
 
@@ -14,7 +51,7 @@ class LiveblogDRbServer
                 config: '/tmp/liveblog/liveblog.conf')
 
     @host, @port = host, port
-    @lb = LiveBlog.new config: config
+    @lb = LiveBlogServer.new  config    
 
   end
 
