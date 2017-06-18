@@ -26,6 +26,10 @@ class LiveBlogServer
     @lb.import x
   end
   
+  def new_day(date: Date.today)
+    @lb.new_day date: date
+  end
+  
   def raw_view(tag)
     @lb.raw_view tag
   end
@@ -63,5 +67,3 @@ class LiveblogDRbServer
   end
 
 end
-
-
