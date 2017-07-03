@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name = 'liveblog_drb_server'
-  s.version = '0.2.1'
+  s.version = '0.2.2'
   s.summary = 'A DRb server which runs an instance of a Liveblog'
   s.authors = ['James Robertson']
   s.files = Dir['lib/liveblog_drb_server.rb']

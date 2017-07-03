@@ -39,6 +39,10 @@ class LiveBlogServer
     'restarted'
   end     
   
+  def tags()
+    @lb.tags()
+  end
+  
   def update(val)
     @lb.update(val)
   end
