@@ -9,9 +9,9 @@ require 'liveblog'
 
 class LiveBlogServer 
   
-  def initialize(config)
+  def initialize(config, log: nil)
     @config = config
-    @lb = LiveBlog.new  config     
+    @lb = LiveBlog.new  config, log: log     
   end
         
   def add_entry(raw_entry)
@@ -56,10 +56,10 @@ end
 class LiveblogDRbServer
 
   def initialize(host: 'localhost', port: '60500', 
-                config: '/tmp/liveblog/liveblog.conf')
+                config: '/tmp/liveblog/liveblog.conf', log: nil)
 
     @host, @port = host, port
-    @lb = LiveBlogServer.new  config    
+    @lb = LiveBlogServer.new  config, log: log    
 
   end
 
